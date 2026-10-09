@@ -1,2 +1,3 @@
-# E-commerce-web-site
-Personal project
+# E-commerce-web-ssssite
+
+Personal project for me
