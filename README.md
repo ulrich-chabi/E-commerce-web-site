@@ -66,7 +66,8 @@ npm run test:integration:http
 - Variables obligatoires en production : `DATABASE_URL`, `STORE_CORS`, `ADMIN_CORS`,
   `AUTH_CORS`, `JWT_SECRET`, `COOKIE_SECRET`. Le démarrage échoue si l'une manque.
 - Optionnelles : `DATABASE_SSL=true`, `REDIS_URL`, `MEDUSA_WORKER_MODE`,
-  `MEDUSA_BACKEND_URL`, `DISABLE_MEDUSA_ADMIN`.
+  `MEDUSA_BACKEND_URL`, `DISABLE_MEDUSA_ADMIN`, `PASSWORD_MIN_LENGTH` (4), `LOGIN_MAX_FAILURES` (5),
+  `LOGIN_LOCK_MINUTES` (15), `PERSONAL_DATA_RETENTION_DAYS` (90).
 - Fichiers téléversés : le dossier local `uploads/` est éphémère chez la plupart des hébergeurs.
   Prévoir un stockage compatible S3 avant d'accepter des images envoyées par des vendeurs.
 
