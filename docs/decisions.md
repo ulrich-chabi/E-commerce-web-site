@@ -35,4 +35,10 @@ Statuts : validée / proposée / à confirmer / rejetée. Dernière mise à jour
 | 29 | Vendeur suspendu : lecture seule de ses commandes, tout le reste refusé | validée | E4 |
 | 30 | Conservation temporaire des données personnelles : email et IP du journal effacés après 90 jours, événements conservés ; échecs de connexion supprimés après 24 h (variable PERSONAL_DATA_RETENTION_DAYS) | validée (durée de 90 jours : proposition à confirmer) | E4 |
 | 31 | Message d'erreur identique : même réponse pour un compte inconnu et un mauvais mot de passe, et même blocage pour un compte inconnu | validée (choix délégué à l'assistant) | E4 |
+| 32 | Offres : une fiche catalogue regroupe les produits de plusieurs vendeurs (chaque offre garde son prix, son stock et ses commandes) | validée | F |
+| 33 | Site Next.js neuf (Next 16, React 19, Tailwind 4, kit officiel Medusa), construit à partir des maquettes | validée | F |
+| 34 | Visuels de substitution générés, marques inventées, aucun avis ni note | validée | F |
+| 35 | Catalogue fictif : 20 rayons, 20 fiches par rayon (réglable), 7 vendeurs dont « Marketplace Direct » pour les ventes directes | validée (ajustable) | F |
+| 36 | Terracotta assombri (#A33F22) : le précédent (#B4492A) était sous le seuil de contraste sur le fond sable des menus | proposée | F |
+| 37 | Site non indexé par les moteurs de recherche (prototype) | proposée | F |
 

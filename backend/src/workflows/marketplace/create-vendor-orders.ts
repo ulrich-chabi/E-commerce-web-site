@@ -47,14 +47,15 @@ const groupVendorItemsStep = createStep(
         fields: ["id", "vendor.id", "vendor.status"],
         filters: { id: item.product_id || "" },
       })
-      const vendorId = product?.vendor?.id
-      if (!vendorId) {
+      const vendor = product?.vendor
+      const vendorId = vendor?.id
+      if (!vendor || !vendorId) {
         throw new MedusaError(
           MedusaError.Types.INVALID_DATA,
           `La ligne "${item.title}" n'est rattachée à aucun vendeur.`
         )
       }
-      if (product.vendor.status !== "active") {
+      if (vendor.status !== "active") {
         throw new MedusaError(
           MedusaError.Types.NOT_ALLOWED,
           `Le vendeur de "${item.title}" ne vend plus actuellement.`

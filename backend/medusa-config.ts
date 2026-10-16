@@ -40,6 +40,7 @@ module.exports = defineConfig({
   modules: [
     { resolve: './src/modules/marketplace' },
     { resolve: './src/modules/security' },
+    { resolve: './src/modules/catalog' },
   ],
   admin: {
     disable: process.env.DISABLE_MEDUSA_ADMIN === 'true',

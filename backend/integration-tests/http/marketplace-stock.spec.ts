@@ -54,7 +54,7 @@ medusaIntegrationTestRunner({
           fields: ["id", "inventory_items.inventory_item_id"],
           filters: { id: variantId },
         })
-        const inventoryItemId = data[0].inventory_items[0].inventory_item_id
+        const inventoryItemId = data[0]!.inventory_items![0]!.inventory_item_id
         const created = await call(
           "post",
           `/admin/inventory-items/${inventoryItemId}/location-levels`,

@@ -1,6 +1,6 @@
 # Prototype de marketplace multi-vendeurs
 
-Backend Medusa (TypeScript) + PostgreSQL. Le storefront (Next.js) arrivera dans une étape suivante.
+Backend Medusa (TypeScript) + PostgreSQL, et site Next.js (`storefront`).
 Paiements, livraisons, commissions : simulés. Données : fictives.
 
 ## Structure
@@ -9,9 +9,11 @@ Paiements, livraisons, commissions : simulés. Données : fictives.
 marketplace-prototype/
 ├─ README.md
 ├─ .gitignore
-├─ docs/
-│  └─ decisions.md        Registre des décisions
-└─ backend/               Backend Medusa
+├─ docs/                  Registre des décisions et comptes rendus
+├─ storefront/            Site Next.js (anglais américain, USD), port 8000
+│  ├─ .env.local.example  Modèle de configuration (copier en .env.local)
+│  └─ src/                Pages, composants, accès au backend
+└─ backend/               Backend Medusa (port 9000)
    ├─ .env.template       Modèle de configuration (copier en .env)
    ├─ medusa-config.ts    Configuration pilotée par variables d'environnement
    ├─ package.json
@@ -50,6 +52,35 @@ npm run dev
 ```
 
 Vérifications : http://localhost:9000/health (doit répondre 200) puis http://localhost:9000/app (administration).
+
+## Catalogue de démonstration et site
+
+Le catalogue est entièrement fictif (marques inventées, aucun avis ni note). À faire UNE fois, backend arrêté ou non :
+
+```powershell
+cd backend
+npx medusa exec ./src/scripts/seed-marketplace.ts
+```
+
+Le script crée la boutique américaine (USD), 20 rayons, 7 vendeurs et 400 fiches catalogue (20 par rayon, réglable
+avec la variable `SEED_PRODUCTS_PER_CATEGORY`), puis affiche une **clé publique** (`pk_...`). Il refuse de s'exécuter
+si le catalogue contient déjà des fiches.
+
+Ensuite, deux terminaux :
+
+```powershell
+# Terminal 1 : backend
+cd backend
+npm run dev
+
+# Terminal 2 : site (première fois : créer .env.local et y coller la clé affichée par le script)
+cd storefront
+copy .env.local.example .env.local
+npm install
+npm run dev
+```
+
+Ouvrir http://localhost:8000. Vérifications : `npm run typecheck` puis `npm run build` dans `storefront`.
 
 ## Tests
 
